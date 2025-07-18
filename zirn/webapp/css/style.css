@@ -1,0 +1,8 @@
+/* Enter your custom styles here */
+
+
+[id$="---Grid--_IDGenTitle"],
+[id$="---Grid--_IDGenTitle1"]
+{
+    display: none!important;
+}

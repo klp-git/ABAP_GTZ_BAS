@@ -1,0 +1,6 @@
+/* Enter your custom styles here */
+
+[id$="---View1"] {
+    height: 55vh;
+    overflow-y: auto;
+}

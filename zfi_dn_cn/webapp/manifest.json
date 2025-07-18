@@ -1,0 +1,136 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "zfidncn",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.16.5",
+      "toolsId": "9a03209d-16dc-40de-94ed-30f6bf416604"
+    },
+    "dataSources": {
+      "ZDEF_CD_DN_VAN": {
+        "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZDEF_CD_DN_VAN',Version='0001')/$value/",
+        "type": "ODataAnnotation",
+        "settings": {
+          "localUri": "localService/mainService/ZDEF_CD_DN_VAN.xml"
+        }
+      },
+      "mainService": {
+        "uri": "/sap/opu/odata/sap/ZDEF_CD_DN/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "ZDEF_CD_DN_VAN"
+          ],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "2.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "zfi_dn_cn_so-DISPLAY": {
+          "semanticObject": "zfi_dn_cn_so",
+          "action": "DISPLAY",
+          "title": "{{zfi_dn_cn_so-DISPLAY.flpTitle}}",
+          "subTitle": "{{zfi_dn_cn_so-DISPLAY.flpSubtitle}}",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.130.7",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "zfidncn.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {}
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition": "slide",
+        "type": "View",
+        "viewType": "XML",
+        "path": "zfidncn.view",
+        "async": true,
+        "viewPath": "zfidncn.view"
+      },
+      "routes": [
+        {
+          "name": "Routegrid",
+          "pattern": ":?query:",
+          "target": [
+            "Targetgrid"
+          ]
+        }
+      ],
+      "targets": {
+        "Targetgrid": {
+          "id": "grid",
+          "name": "grid"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "zfidncn.view.App",
+      "type": "XML",
+      "id": "App"
+    }
+  }
+}

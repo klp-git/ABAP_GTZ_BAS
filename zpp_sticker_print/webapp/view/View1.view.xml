@@ -1,0 +1,31 @@
+<mvc:View controllerName="zppstickerprint.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"   xmlns:core="sap.ui.core"  xmlns:f="sap.ui.layout.form">
+    <Page id="page" title="{i18n>title}">
+        <content>
+             <Panel id="p1" backgroundDesign="Transparent" class="myBackgroundStyle">                
+                <content>
+                    <f:SimpleForm id="form1"  editable="true" emptySpanL="6" emptySpanXL="7" emptySpanM="7" layout="ResponsiveGridLayout" class="sapUiTinyMarginBottom">
+                        <f:content>
+                            <Label id="a1" text="Beam No." />
+                            <Input id="beamno"  width="100%" showSuggestion="true"/>
+                            <Label id="a2" text="Order No." />
+                            <Input id="orderno" width="100%" showValueHelp="true" valueHelpRequest="handlef4" showSuggestion="true"/>
+                            <Label id="a3" text="No. Of Sticker" ></Label>
+                            <Input id="fromsticker"></Input> 
+                            <Input id="tosticker"></Input>          
+                        </f:content>
+                    </f:SimpleForm>
+                </content>
+            </Panel>
+        </content>
+        <footer>
+			<Bar id="bar">
+				<contentRight>
+					<Button id="bt1" icon="sap-icon://print" text="Print" type="Emphasized"  press="GRPrint"/>
+				</contentRight>
+			</Bar>
+		</footer>
+
+    </Page>
+</mvc:View>

@@ -1,0 +1,122 @@
+{
+    "_version": "1.65.0",
+    "sap.app": {
+        "id": "zirneway",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.16.4",
+            "toolsId": "fb65e553-9ac3-4bc6-b4af-f3fd43feab49"
+        },
+        "dataSources": {
+            "ZSB_ZEWAYBILL_VAN": {
+                "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZSB_ZEWAYBILL_VAN',Version='0001')/$value/",
+                "type": "ODataAnnotation",
+                "settings": {
+                    "localUri": "localService/mainService/ZSB_ZEWAYBILL_VAN.xml"
+                }
+            },
+            "mainService": {
+                "uri": "/sap/opu/odata/sap/ZSB_ZEWAYBILL/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [
+                        "ZSB_ZEWAYBILL_VAN"
+                    ],
+                    "localUri": "localService/mainService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.130.6",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "zirneway.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {}
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "transition": "slide",
+                "type": "View",
+                "viewType": "XML",
+                "path": "zirneway.view",
+                "async": true,
+                "viewPath": "zirneway.view"
+            },
+            "routes": [
+                {
+                    "name": "RouteView2",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetView2"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetView1": {
+                    "id": "View2",
+                    "name": "View2"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "zirneway.view.App",
+            "type": "XML",
+            "id": "App"
+        }
+    }
+}

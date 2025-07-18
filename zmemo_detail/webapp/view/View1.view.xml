@@ -1,0 +1,87 @@
+
+
+<mvc:View
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    controllerName="zmemodetail.controller.View1"
+    height="100%"
+>
+    <!-- use this to make the table occupy the available screen height -->
+    <VBox fitContainer="true" id="cndn" height="100%">
+        <smartFilterBar:SmartFilterBar
+            id="smartFilterBar"
+            entitySet="ZI_ZPP_PRD_MEMO"  
+            persistencyKey="SmartFilter_Explored"
+
+        >    
+
+        <smartFilterBar:controlConfiguration>
+                <smartFilterBar:ControlConfiguration
+                    id="_IDGenControlConfiguration"
+                    key="Reservation"
+                    visibleInAdvancedArea="true"
+                   
+                />
+                   </smartFilterBar:controlConfiguration>
+        
+       
+           
+            <!-- layout data used to make the table growing but the filter bar fixed -->
+            <smartFilterBar:layoutData>
+ 
+         <FlexItemData id="_IDGenFlexItemData" shrinkFactor="0" />
+        </smartFilterBar:layoutData>
+        </smartFilterBar:SmartFilterBar>
+        <smartTable:SmartTable
+            id="LineItemsSmartTable"
+            entitySet="ZI_ZPP_PRD_MEMO"
+            smartFilterId="smartFilterBar"
+            useVariantManagement="false"
+            tableType="ResponsiveTable"
+            header="Production Memo Details"
+            showRowCount="false"
+            persistencyKey="SmartTableAnalytical_Explored"
+            enableAutoBinding="true"
+            class="sapUiResponsiveContentPadding"
+            enableAutoColumnWidth="true"
+            editTogglable="false"
+             ignoredFields="__metadata"
+            app:useSmartToggle="true"
+        initiallyVisibleFields="Reservation,DivisionName"
+        >
+        <Table
+                id="RespTable"
+                sticky="ColumnHeaders,HeaderToolbar"
+                inset="false"
+                selectionChange="onSelectionChange"
+                mode="SingleSelectLeft"
+                growing="true"
+            />
+                      <smartTable:customToolbar>
+                <OverflowToolbar id="_IDGenOverflowToolbar2">
+                    <ToolbarSpacer id="_IDGenToolbarSpacer" />
+                    <Button
+                        id="_IDGenButton4"
+                        text="Print"
+                        press="onClickPrint"
+                        enabled="false"
+                    />
+                </OverflowToolbar>
+            </smartTable:customToolbar>
+ 
+       
+                       <smartTable:layoutData>
+                <FlexItemData
+                    id="_IDGenFlexItemData2"
+                    growFactor="1"
+                    baseSize="0%"
+                />
+            </smartTable:layoutData>
+ 
+        </smartTable:SmartTable>
+    </VBox>
+</mvc:View>

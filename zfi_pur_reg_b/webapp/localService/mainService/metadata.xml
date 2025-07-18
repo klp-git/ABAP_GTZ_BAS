@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ODM',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.ODM.v1" Alias="SAP__ODM"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd.zsd_fi_purreg_rep2.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="zpur_reg_ceType">
+                <Key>
+                    <PropertyRef Name="bukrs"/>
+                    <PropertyRef Name="gjahr"/>
+                    <PropertyRef Name="belnr"/>
+                    <PropertyRef Name="txgrp"/>
+                </Key>
+                <Property Name="bukrs" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="gjahr" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="belnr" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="txgrp" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="lifnr" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="vendorname" Type="Edm.String" Nullable="false" MaxLength="163"/>
+                <Property Name="vendorreconaccount" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="vendorreconaccountname" Type="Edm.String" Nullable="false" MaxLength="50"/>
+                <Property Name="vendorgstin" Type="Edm.String" Nullable="false" MaxLength="15"/>
+                <Property Name="vendorpannumber" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="AccountingDocumentType" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="postingdate" Type="Edm.Date"/>
+                <Property Name="plantname" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="plantgst" Type="Edm.String" Nullable="false" MaxLength="15"/>
+                <Property Name="costelement" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="glaccountdiscription" Type="Edm.String" Nullable="false" MaxLength="50"/>
+                <Property Name="xblnr" Type="Edm.String" Nullable="false" MaxLength="16"/>
+                <Property Name="documentdate" Type="Edm.Date"/>
+                <Property Name="profitcenter" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="hsncode" Type="Edm.String" Nullable="false" MaxLength="16"/>
+                <Property Name="taxcode" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="taxcodename" Type="Edm.String" Nullable="false" MaxLength="50"/>
+                <Property Name="taxablevalue" Type="Edm.Decimal" Nullable="false" Precision="25" Scale="2"/>
+                <Property Name="igst_receive" Type="Edm.Decimal" Nullable="false" Precision="25" Scale="2"/>
+                <Property Name="cgst_receive" Type="Edm.Decimal" Nullable="false" Precision="25" Scale="2"/>
+                <Property Name="sgst_receive" Type="Edm.Decimal" Nullable="false" Precision="25" Scale="2"/>
+                <Property Name="ugst_receive" Type="Edm.Decimal" Nullable="false" Precision="25" Scale="2"/>
+                <Property Name="total_tax" Type="Edm.Decimal" Nullable="false" Precision="25" Scale="2"/>
+                <Property Name="round_off" Type="Edm.Decimal" Nullable="false" Precision="25" Scale="2"/>
+                <Property Name="total_amount" Type="Edm.Decimal" Nullable="false" Precision="25" Scale="2"/>
+                <Property Name="rate_igst" Type="Edm.Decimal" Nullable="false" Precision="5" Scale="2"/>
+                <Property Name="rate_cgst" Type="Edm.Decimal" Nullable="false" Precision="5" Scale="2"/>
+                <Property Name="rate_sgst" Type="Edm.Decimal" Nullable="false" Precision="5" Scale="2"/>
+                <Property Name="rate_ugst" Type="Edm.Decimal" Nullable="false" Precision="5" Scale="2"/>
+                <Property Name="rcm_igst" Type="Edm.Decimal" Nullable="false" Precision="25" Scale="2"/>
+                <Property Name="rcm_cgst" Type="Edm.Decimal" Nullable="false" Precision="25" Scale="2"/>
+                <Property Name="rcm_sgst" Type="Edm.Decimal" Nullable="false" Precision="25" Scale="2"/>
+                <Property Name="rcm_ugst" Type="Edm.Decimal" Nullable="false" Precision="25" Scale="2"/>
+                <Property Name="is_reversed" Type="Edm.String" Nullable="false" MaxLength="10"/>
+            </EntityType>
+            <EntityContainer Name="Container">
+                <EntitySet Name="zpur_reg_ce" EntityType="com.sap.gateway.srvd.zsd_fi_purreg_rep2.v0001.zpur_reg_ceType"/>
+            </EntityContainer>
+            <Annotations Target="SAP__self.zpur_reg_ceType/bukrs">
+                <Annotation Term="SAP__common.Label" String="Company Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/gjahr">
+                <Annotation Term="SAP__common.Label" String="Fiscal Year"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/belnr">
+                <Annotation Term="SAP__common.Label" String="Document Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/txgrp">
+                <Annotation Term="SAP__common.Label" String="Document Item Number"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/lifnr">
+                <Annotation Term="SAP__common.Label" String="Vendor Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/vendorname">
+                <Annotation Term="SAP__common.Label" String="Vendor Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/vendorreconaccount">
+                <Annotation Term="SAP__common.Label" String="Vendor Recon.A/C"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/vendorreconaccountname">
+                <Annotation Term="SAP__common.Label" String="Vendor Recon.A/c Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/vendorgstin">
+                <Annotation Term="SAP__common.Label" String="Vendor GSTIN Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/vendorpannumber">
+                <Annotation Term="SAP__common.Label" String="Vendor Pan Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/AccountingDocumentType">
+                <Annotation Term="SAP__common.Label" String="Document Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/postingdate">
+                <Annotation Term="SAP__common.Label" String="Posting Date"/>
+                <Annotation Term="SAP__common.Heading" String="DATN"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Date"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/plantname">
+                <Annotation Term="SAP__common.Label" String="Plant Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/plantgst">
+                <Annotation Term="SAP__common.Label" String="Plant GST"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/costelement">
+                <Annotation Term="SAP__common.Label" String="GL A/c No."/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/glaccountdiscription">
+                <Annotation Term="SAP__common.Label" String="GL A/c Description"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/xblnr">
+                <Annotation Term="SAP__common.Label" String="Bill / Ref. Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/documentdate">
+                <Annotation Term="SAP__common.Label" String="Bill / Ref. Date"/>
+                <Annotation Term="SAP__common.Heading" String="DATN"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Date"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/profitcenter">
+                <Annotation Term="SAP__common.Label" String="Profit Center"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/hsncode">
+                <Annotation Term="SAP__common.Label" String="HSN Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/taxcode">
+                <Annotation Term="SAP__common.Label" String="Tax Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/taxcodename">
+                <Annotation Term="SAP__common.Label" String="Tax Code Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/taxablevalue">
+                <Annotation Term="SAP__common.Label" String="Taxable  Value"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/igst_receive">
+                <Annotation Term="SAP__common.Label" String="IGST Receivable"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/cgst_receive">
+                <Annotation Term="SAP__common.Label" String="CGST Receivable"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/sgst_receive">
+                <Annotation Term="SAP__common.Label" String="SGST Receivable"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/ugst_receive">
+                <Annotation Term="SAP__common.Label" String="UGST Receivable"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/total_tax">
+                <Annotation Term="SAP__common.Label" String="Total Tax"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/round_off">
+                <Annotation Term="SAP__common.Label" String="Round Off"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/total_amount">
+                <Annotation Term="SAP__common.Label" String="Total Amount"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/rate_igst">
+                <Annotation Term="SAP__common.Label" String="IGST %"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/rate_cgst">
+                <Annotation Term="SAP__common.Label" String="CGST %"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/rate_sgst">
+                <Annotation Term="SAP__common.Label" String="SGST %"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/rate_ugst">
+                <Annotation Term="SAP__common.Label" String="UGST %"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/rcm_igst">
+                <Annotation Term="SAP__common.Label" String="RCM IGST Payable"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/rcm_cgst">
+                <Annotation Term="SAP__common.Label" String="RCM CGST Payable"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/rcm_sgst">
+                <Annotation Term="SAP__common.Label" String="RCM SGST Payable"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/rcm_ugst">
+                <Annotation Term="SAP__common.Label" String=" RCM UGST Payable"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType/is_reversed">
+                <Annotation Term="SAP__common.Label" String="Is Reversed"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/zpur_reg_ce">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="IANATimezoneFormat" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="TextDirectionLayout" Bool="true"/>
+                        <PropertyValue Property="Treeview" Bool="true"/>
+                        <PropertyValue Property="UploadToFileShare" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zpur_reg_ceType">
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="FI Purchase Register"/>
+                        <PropertyValue Property="TypeNamePlural" String="FI Purchase Register"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Company Code"/>
+                            <PropertyValue Property="Value" Path="bukrs"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Fiscal Year"/>
+                            <PropertyValue Property="Value" Path="gjahr"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Document Number"/>
+                            <PropertyValue Property="Value" Path="belnr"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Document Item Number"/>
+                            <PropertyValue Property="Value" Path="txgrp"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Vendor Code"/>
+                            <PropertyValue Property="Value" Path="lifnr"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Vendor Name"/>
+                            <PropertyValue Property="Value" Path="vendorname"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Vendor Recon.A/C"/>
+                            <PropertyValue Property="Value" Path="vendorreconaccount"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Vendor Recon.A/c Name"/>
+                            <PropertyValue Property="Value" Path="vendorreconaccountname"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Vendor GSTIN Number"/>
+                            <PropertyValue Property="Value" Path="vendorgstin"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Vendor Pan Number"/>
+                            <PropertyValue Property="Value" Path="vendorpannumber"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Document Type"/>
+                            <PropertyValue Property="Value" Path="AccountingDocumentType"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Posting Date"/>
+                            <PropertyValue Property="Value" Path="postingdate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Plant Name"/>
+                            <PropertyValue Property="Value" Path="plantname"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Plant GST"/>
+                            <PropertyValue Property="Value" Path="plantgst"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="GL A/c No."/>
+                            <PropertyValue Property="Value" Path="costelement"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="GL A/c Description"/>
+                            <PropertyValue Property="Value" Path="glaccountdiscription"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Bill / Ref. Number"/>
+                            <PropertyValue Property="Value" Path="xblnr"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Bill / Ref. Date"/>
+                            <PropertyValue Property="Value" Path="documentdate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Profit Center"/>
+                            <PropertyValue Property="Value" Path="profitcenter"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="HSN Code"/>
+                            <PropertyValue Property="Value" Path="hsncode"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Tax Code"/>
+                            <PropertyValue Property="Value" Path="taxcode"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Tax Code Name"/>
+                            <PropertyValue Property="Value" Path="taxcodename"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Taxable Value"/>
+                            <PropertyValue Property="Value" Path="taxablevalue"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="IGST Receivable"/>
+                            <PropertyValue Property="Value" Path="igst_receive"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="CGST Receivable"/>
+                            <PropertyValue Property="Value" Path="cgst_receive"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="SGST Receivable"/>
+                            <PropertyValue Property="Value" Path="sgst_receive"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="UGST Receivable"/>
+                            <PropertyValue Property="Value" Path="ugst_receive"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Total Tax"/>
+                            <PropertyValue Property="Value" Path="total_tax"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Round Off"/>
+                            <PropertyValue Property="Value" Path="round_off"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Total Amount"/>
+                            <PropertyValue Property="Value" Path="total_amount"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="IGST %"/>
+                            <PropertyValue Property="Value" Path="rate_igst"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="CGST %"/>
+                            <PropertyValue Property="Value" Path="rate_cgst"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="SGST %"/>
+                            <PropertyValue Property="Value" Path="rate_sgst"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="UGST %"/>
+                            <PropertyValue Property="Value" Path="rate_ugst"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="RCM IGST Payable"/>
+                            <PropertyValue Property="Value" Path="rcm_igst"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="RCM CGST Payable"/>
+                            <PropertyValue Property="Value" Path="rcm_cgst"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="RCM SGST Payable"/>
+                            <PropertyValue Property="Value" Path="rcm_sgst"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="RCM UGST Payable"/>
+                            <PropertyValue Property="Value" Path="rcm_ugst"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Is Reversed"/>
+                            <PropertyValue Property="Value" Path="is_reversed"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>bukrs</PropertyPath>
+                        <PropertyPath>gjahr</PropertyPath>
+                        <PropertyPath>belnr</PropertyPath>
+                        <PropertyPath>postingdate</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

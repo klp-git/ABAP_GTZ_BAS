@@ -1,0 +1,99 @@
+<mvc:View
+    controllerName="zpodom.controller.Grid1"
+    xmlns="sap.m"
+    xmlns:table="sap.ui.table"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    height="100%"
+>
+    <VBox
+        id="_IDGenVBox"
+        fitContainer="true"
+    >
+        <smartFilterBar:SmartFilterBar
+            id="_IDGenSmartFilterBar"
+            entitySet="ZDD_PO_DOM"
+            persistencyKey="SmartFilter_Explored"
+        >
+            <smartFilterBar:controlConfiguration>
+                <smartFilterBar:ControlConfiguration
+                    id="_IDGenControlConfiguration"
+                    key="purchaseorder"
+                    visibleInAdvancedArea="true"
+                />
+                <smartFilterBar:ControlConfiguration
+                    id="_IDGenControlConfiguration2"
+                    key="supplier"
+                    visibleInAdvancedArea="true"
+                />
+            </smartFilterBar:controlConfiguration>
+        </smartFilterBar:SmartFilterBar>
+        <smartTable:SmartTable
+            id="_IDGenSmartTable"
+            entitySet="ZDD_PO_DOM"
+            tableType="ResponsiveTable"
+            header="Purchase Order"
+            enableAutoColumnWidth="true"
+            editTogglable="false"
+            enableAutoBinding="true"
+            app:useSmartToggle="true"
+            showFullScreenButton="true"
+            beforeRebindTable="onBeforeRebindTable"
+            class="sapUiResponsiveContentPadding"
+            persistencyKey="SmartTableAnalytical_Explored"
+            smartFilterId="_IDGenSmartFilterBar"
+            useVariantManagement="false"
+        >
+            <table:Table
+                id="_IDGenTable"
+                enableSelectAll="true"
+                selectionMode="Single"
+                rowSelectionChange="onSelectionChange"
+            />
+            <smartTable:customToolbar>
+                <OverflowToolbar id="_IDGenOverflowToolbar2">
+                    <ToolbarSpacer id="_IDGenToolbarSpacer1" />
+                    
+                    <MenuButton
+                        id="_IDGenMenuButton2"
+                        text="PrintForms"
+                        icon="sap-icon://action"
+                    >
+                        <menu>
+                            <Menu id="_IDGenMenu1">
+                                <MenuItem
+                                    id="_IDGenMenuItem14"
+                                    text="RM and PM PO"
+                                    icon="sap-icon://print"
+                                    press="onClickPrintDom"
+                                />
+                                <MenuItem id="_IDGenMenuItem5"
+                                    text="Maintenance PO"
+                                    icon="sap-icon://print"
+                                    press="onClickPrintmaintence"
+                                />
+                                <MenuItem id="_IDGenMenuItem6"
+                                    text="Service PO"
+                                    icon="sap-icon://print"
+                                    press="onClickPrintservice"
+                                />
+                            </Menu>
+                        </menu>
+                    </MenuButton>
+                </OverflowToolbar>
+            </smartTable:customToolbar>
+            <smartTable:layoutData>
+                <FlexItemData
+                    id="_IDGenFlexItemData"
+                    growFactor="1"
+                    baseSize="0%"
+                />
+            </smartTable:layoutData>
+        </smartTable:SmartTable>
+    </VBox>
+</mvc:View>

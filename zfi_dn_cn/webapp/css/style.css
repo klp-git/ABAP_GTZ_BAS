@@ -1,0 +1,6 @@
+/* Enter your custom styles here */
+
+[id$="---grid--RespTable"] {
+    height: 55vh;
+    overflow-y: auto;
+}

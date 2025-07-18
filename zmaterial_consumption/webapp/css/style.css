@@ -1,0 +1,38 @@
+/* Enter your custom styles here */
+.customTitle {
+    font-size: 1.5rem; /* Adjust title size */
+    font-weight: bold;
+    margin-left: 1rem;
+    margin-top:0.5rem;
+  }
+ 
+  .horizontalLine {
+    height: 1px;
+    background-color: #ccc; /* Light gray line */
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+ 
+  .MarginTop {
+    margin-top: 1rem; /* Add vertical spacing */
+  }
+ 
+  .leftMargin {
+    margin-left: 1rem; /* Add spacing between fields */
+  }
+ 
+  .spacingHBox {
+    gap: 1rem; /* Add consistent spacing between child elements in HBox */
+  }
+ 
+  .radioGroup {
+    margin-top: 1rem; /* Spacing above radio button group */
+  }
+ 
+  .compactHBox {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 0.5rem; /* Reduce spacing for compact layout */
+  }
+ 
